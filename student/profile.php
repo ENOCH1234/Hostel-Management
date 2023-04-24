@@ -24,7 +24,7 @@
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<!-- By CodeAstro - codeastro.com -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -94,7 +94,7 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-            <!-- By CodeAstro - codeastro.com -->
+            
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -131,7 +131,7 @@
                             </div>
                         </div>
 
-<!-- By CodeAstro - codeastro.com -->
+
 
                         <div class="col-md-6">
                             <div class="card">
@@ -221,7 +221,7 @@
                             </div>
                         </div>
 
-<!-- By CodeAstro - codeastro.com -->
+
 
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
@@ -274,7 +274,7 @@
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- apps --><!-- By CodeAstro - codeastro.com -->
+    <!-- apps -->
     <!-- apps -->
     <script src="../dist/js/app-style-switcher.js"></script>
     <script src="../dist/js/feather.min.js"></script>

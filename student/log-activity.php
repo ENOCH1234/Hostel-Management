@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<!-- By CodeAstro - codeastro.com -->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,7 +79,7 @@
                         <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">My Log Activities</h4>
                 </div>
 
-<!-- By CodeAstro - codeastro.com -->
+
                 <div class="col-12">
                         <div class="card">
                             

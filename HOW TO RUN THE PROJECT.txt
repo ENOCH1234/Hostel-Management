@@ -14,5 +14,3 @@ Password: Password@123
 Create accounts for students
 
 Log in at the student section and book hostel
-
-Enjoy!!!

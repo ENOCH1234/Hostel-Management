@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<!-- By CodeAstro - codeastro.com -->
+
 
 <head>
     <meta charset="utf-8">
@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
             });
         }
     </script>
-    <!-- By CodeAstro - codeastro.com -->
+    
 </head>
 
 <body>
@@ -180,7 +180,7 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- By CodeAstro - codeastro.com -->
+                            
 
 
                             <div class="col-sm-12 col-md-6 col-lg-4">

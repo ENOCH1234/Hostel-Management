@@ -35,7 +35,7 @@
 <html dir="ltr" lang="en">
 
 <head>
-<!-- By CodeAstro - codeastro.com -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -85,7 +85,7 @@
         <header class="topbar" data-navbarbg="skin6">
             <?php include '../includes/student-navigation.php'?>
         </header>
-        <!-- By CodeAstro - codeastro.com -->
+        
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
