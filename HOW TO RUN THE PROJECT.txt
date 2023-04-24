@@ -1,0 +1,18 @@
+Unzip the file into htdocs folder in the XAMPP directory on your local disk
+xampp/htdocs/hostel-management
+
+Create a database with the name hostelmsphp on localhost
+
+Import the SQL file in the DATABASE folder
+
+Open the web app in localhost e.g. localhost/hostel-management
+
+Login to the admin panel with the details below:
+Username: admin
+Password: Password@123
+
+Create accounts for students
+
+Log in at the student section and book hostel
+
+Enjoy!!!

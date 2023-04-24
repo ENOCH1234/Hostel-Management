@@ -1,23 +1,22 @@
 <?php
-    session_start();
-    include('../includes/dbconn.php');
-    if(isset($_POST['submit']))
-    {
-    $regno=$_POST['regno'];
-    $fname=$_POST['fname'];
-    $mname=$_POST['mname'];
-    $lname=$_POST['lname'];
-    $gender=$_POST['gender'];
-    $contactno=$_POST['contact'];
-    $emailid=$_POST['email'];
-    $password=$_POST['password'];
+session_start();
+include('../includes/dbconn.php');
+if (isset($_POST['submit'])) {
+    $regno = $_POST['regno'];
+    $fname = $_POST['fname'];
+    $mname = $_POST['mname'];
+    $lname = $_POST['lname'];
+    $gender = $_POST['gender'];
+    $contactno = $_POST['contact'];
+    $emailid = $_POST['email'];
+    $password = $_POST['password'];
     $password = md5($password);
-    $query="INSERT into userRegistration(regNo,firstName,middleName,lastName,gender,contactNo,email,password) values(?,?,?,?,?,?,?,?)";
+    $query = "INSERT into userRegistration(regNo,firstName,middleName,lastName,gender,contactNo,email,password) values(?,?,?,?,?,?,?,?)";
     $stmt = $mysqli->prepare($query);
-    $rc=$stmt->bind_param('sssssiss',$regno,$fname,$mname,$lname,$gender,$contactno,$emailid,$password);
+    $rc = $stmt->bind_param('sssssiss', $regno, $fname, $mname, $lname, $gender, $contactno, $emailid, $password);
     $stmt->execute();
-        echo"<script>alert('Student has been Registered!');</script>";
-    }
+    echo "<script>alert('Student has been Registered!');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +39,16 @@
     <link href="../dist/css/style.min.css" rel="stylesheet">
 
     <script type="text/javascript">
-    function valid(){
-        if(document.registration.password.value!= document.registration.cpassword.value)
-    {
-        alert("Password and Confirm Password does not match");
-        document.registration.cpassword.focus();
-        return false;
-    }
-        return true;
-    }
+        function valid() {
+            if (document.registration.password.value != document.registration.cpassword.value) {
+                alert("Password and Confirm Password does not match");
+                document.registration.cpassword.focus();
+                return false;
+            }
+            return true;
+        }
     </script>
-    
+
 </head>
 
 <body>
@@ -66,13 +64,12 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
-            <?php include 'includes/navigation.php'?>
+            <?php include 'includes/navigation.php' ?>
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
@@ -83,7 +80,7 @@
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <?php include 'includes/sidebar.php'?>
+                <?php include 'includes/sidebar.php' ?>
             </div>
             <!-- End Sidebar scroll-->
         </aside>
@@ -100,14 +97,14 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Student Registration Form</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Student Registration Form</h4>
                         <div class="d-flex align-items-center">
                             <!-- <nav aria-label="breadcrumb">
                                 
                             </nav> -->
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -127,11 +124,11 @@
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Registration Number</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="regno" placeholder="Enter Registration Number" id="regno" class="form-control" required>
-                                        </div>
-                                    
+                                    <h4 class="card-title">Matriculation Number</h4>
+                                    <div class="form-group">
+                                        <input type="text" name="regno" placeholder="Enter Registration Number" id="regno" class="form-control" required>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -142,9 +139,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">First Name</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="fname" id="fname" placeholder="Enter First Name" required class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="fname" id="fname" placeholder="Enter First Name" required class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -154,9 +151,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Middle Name</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="mname" id="mname" placeholder="Enter Middle Name" required class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="mname" id="mname" placeholder="Enter Middle Name" required class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,9 +163,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Last Name</h4>
-                                        <div class="form-group">
-                                            <input type="text" name="lname" id="lname" placeholder="Enter Middle Name" required class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="text" name="lname" id="lname" placeholder="Enter Middle Name" required class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -178,14 +175,14 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Gender</h4>
-                                        <div class="form-group mb-4">
-                                            <select class="custom-select mr-sm-2" id="gender" name="gender" required="required">
-                                                <option selected>Choose...</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <option value="Others">Others</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group mb-4">
+                                        <select class="custom-select mr-sm-2" id="gender" name="gender" required="required">
+                                            <option selected>Choose...</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -195,9 +192,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Contact Number</h4>
-                                        <div class="form-group">
-                                            <input type="number" name="contact" id="contact" placeholder="Your Contact" required="required" class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="number" name="contact" id="contact" placeholder="Your Contact" required="required" class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -208,10 +205,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Email ID</h4>
-                                        <div class="form-group">
-                                            <input type="email" name="email" id="email" placeholder="Your Email" onBlur="checkAvailability()" required="required" class="form-control">
-                                            <span id="user-availability-status" style="font-size:12px;"></span>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" placeholder="Your Email" onBlur="checkAvailability()" required="required" class="form-control">
+                                        <span id="user-availability-status" style="font-size:12px;"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -221,9 +218,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Password</h4>
-                                        <div class="form-group">
-                                            <input type="password" name="password" id="password" placeholder="Enter Password" required="required" class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" placeholder="Enter Password" required="required" class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -233,9 +230,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Confirm Password</h4>
-                                        <div class="form-group">
-                                            <input type="password" name="cpassword" id="cpassword" placeholder="Enter Confirmation Password" required="required" class="form-control">
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="password" name="cpassword" id="cpassword" placeholder="Enter Confirmation Password" required="required" class="form-control">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -243,15 +240,15 @@
 
 
                     </div>
-                
 
-                        <div class="form-actions">
-                            <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-success">Register</button>
-                                <button type="reset" class="btn btn-danger">Reset</button>
-                            </div>
+
+                    <div class="form-actions">
+                        <div class="text-center">
+                            <button type="submit" name="submit" class="btn btn-success">Register</button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
                         </div>
-                
+                    </div>
+
                 </form>
 
 
@@ -298,24 +295,23 @@
 
     <!-- customs -->
     <script>
-    function checkAvailability() {
+        function checkAvailability() {
 
-        $("#loaderIcon").show();
-        jQuery.ajax({
-        url: "check-availability.php",
-        data:'emailid='+$("#email").val(),
-        type: "POST",
-        success:function(data){
-            $("#user-availability-status").html(data);
-            $("#loaderIcon").hide();
-            },
-                error:function ()
-            {
-                event.preventDefault();
-                alert('error');
-            }
-        });
-    }
+            $("#loaderIcon").show();
+            jQuery.ajax({
+                url: "check-availability.php",
+                data: 'emailid=' + $("#email").val(),
+                type: "POST",
+                success: function(data) {
+                    $("#user-availability-status").html(data);
+                    $("#loaderIcon").hide();
+                },
+                error: function() {
+                    event.preventDefault();
+                    alert('error');
+                }
+            });
+        }
     </script>
 </body>
 

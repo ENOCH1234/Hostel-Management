@@ -1,18 +1,18 @@
 <?php
-    session_start();
-    include('../includes/dbconn.php');
-    include('../includes/check-login.php');
-    check_login();
+session_start();
+include('../includes/dbconn.php');
+include('../includes/check-login.php');
+check_login();
 
-    if(isset($_GET['del'])) {
-        $id=intval($_GET['del']);
-        $adn="DELETE from userregistration where id=?";
-            $stmt= $mysqli->prepare($adn);
-            $stmt->bind_param('i',$id);
-            $stmt->execute();
-            $stmt->close();	   
-            echo "<script>alert('Record has been deleted');</script>" ;
-    }
+if (isset($_GET['del'])) {
+    $id = intval($_GET['del']);
+    $adn = "DELETE from userregistration where id=?";
+    $stmt = $mysqli->prepare($adn);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $stmt->close();
+    echo "<script>alert('Record has been deleted');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,18 +31,19 @@
     <!-- Custom CSS -->
     <link href="../assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-     <!-- This page plugin CSS -->
-     <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- This page plugin CSS -->
+    <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
 
     <script language="javascript" type="text/javascript">
-    var popUpWin=0;
-    function popUpWindow(URLStr, left, top, width, height){
-        if(popUpWin) {
-         if(!popUpWin.closed) popUpWin.close();
+        var popUpWin = 0;
+
+        function popUpWindow(URLStr, left, top, width, height) {
+            if (popUpWin) {
+                if (!popUpWin.closed) popUpWin.close();
             }
-            popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width='+510+',height='+430+',left='+left+', top='+top+',screenX='+left+',screenY='+top+'');
+            popUpWin = open(URLStr, 'popUpWin', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=' + 510 + ',height=' + 430 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
         }
     </script>
 
@@ -61,13 +62,12 @@
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
-    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar" data-navbarbg="skin6">
-            <?php include 'includes/navigation.php'?>
+            <?php include 'includes/navigation.php' ?>
         </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
@@ -78,7 +78,7 @@
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar" data-sidebarbg="skin6">
-                <?php include 'includes/sidebar.php'?>
+                <?php include 'includes/sidebar.php' ?>
             </div>
             <!-- End Sidebar scroll-->
         </aside>
@@ -95,14 +95,14 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Student's Account</h4>
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Student's Account</h4>
                         <div class="d-flex align-items-center">
                             <!-- <nav aria-label="breadcrumb">
                                 
                             </nav> -->
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- ============================================================== -->
@@ -124,7 +124,7 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>#</th>
-                                                <th>Reg. No.</th>
+                                                <th>Matric. No.</th>
                                                 <th>Student's Name</th>
                                                 <th>Gender</th>
                                                 <th>Contact</th>
@@ -133,38 +133,39 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php	
-                                        $aid=$_SESSION['id'];
-                                        $ret="SELECT * from userregistration";
-                                        $stmt= $mysqli->prepare($ret) ;
-                                        $stmt->execute() ;//ok
-                                        $res=$stmt->get_result();
-                                        $cnt=1;
-                                        while($row=$res->fetch_object())
-                                            {
-                                                ?>
-                                        <tr><td><?php echo $cnt;;?></td>
-                                        <td><?php echo $row->regNo;?></td>
-                                        <td><?php echo $row->firstName;?> <?php echo $row->middleName;?> <?php echo $row->lastName;?></td>
-                                        <td><?php echo $row->gender;?></td>
-                                        <td><?php echo $row->contactNo;?></td>
-                                        <td><?php echo $row->email;?></td>
-                                        <td>
-                                        <a href="view-students-acc.php?del=<?php echo $row->id;?>" title="Delete Record" onclick="return confirm("Do you want to delete");"><i class="icon-close" style="color:red;"></i></a></td>
-                                        </tr>
                                             <?php
-                                        $cnt=$cnt+1;
+                                            $aid = $_SESSION['id'];
+                                            $ret = "SELECT * from userregistration";
+                                            $stmt = $mysqli->prepare($ret);
+                                            $stmt->execute(); //ok
+                                            $res = $stmt->get_result();
+                                            $cnt = 1;
+                                            while ($row = $res->fetch_object()) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $cnt;; ?></td>
+                                                    <td><?php echo $row->regNo; ?></td>
+                                                    <td><?php echo $row->firstName; ?> <?php echo $row->middleName; ?> <?php echo $row->lastName; ?></td>
+                                                    <td><?php echo $row->gender; ?></td>
+                                                    <td><?php echo $row->contactNo; ?></td>
+                                                    <td><?php echo $row->email; ?></td>
+                                                    <td>
+                                                        <a href="view-students-acc.php?del=<?php echo $row->id; ?>" title="Delete Record" onclick="return confirm(" Do you want to delete");"><i class="icon-close" style="color:red;"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                                $cnt = $cnt + 1;
                                             } ?>
-											
-										
-									</tbody>
+
+
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Table Ends -->
 
             </div>
